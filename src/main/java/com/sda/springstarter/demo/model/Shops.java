@@ -1,8 +1,12 @@
 package com.sda.springstarter.demo.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "sklepy")
 public class Shops {
 @Id
 @GeneratedValue

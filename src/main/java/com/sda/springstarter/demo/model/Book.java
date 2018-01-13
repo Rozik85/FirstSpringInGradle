@@ -17,6 +17,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ksiazki")
 public class Book {
+
+
     @Id
     @GeneratedValue
     private int id;
@@ -51,5 +53,7 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+    public Book() {
     }
 }

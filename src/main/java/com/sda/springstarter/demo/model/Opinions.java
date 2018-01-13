@@ -1,20 +1,22 @@
 package com.sda.springstarter.demo.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "opinie")
 public class Opinions {
-@Id
-@GeneratedValue
-private int id;
-private String nick;
-private String comment;
-private int idBook;
+    @Id
+    @GeneratedValue
+    private int id;
+    private String nick;
+    private String comment;
+    @ManyToOne
+    private Book book;
 
-    public Opinions(String nick, String comment, int idBook) {
+    public Opinions(String nick, String comment, Book book) {
         this.nick = nick;
         this.comment = comment;
-        this.idBook = idBook;
+        this.book = book;
     }
 
     public int getId() {
@@ -41,11 +43,11 @@ private int idBook;
         this.comment = comment;
     }
 
-    public int getIdBook() {
-        return idBook;
+    public Book getBook() {
+        return book;
     }
 
-    public void setIdBook(int idBook) {
-        this.idBook = idBook;
+    public void setBook(Book book) {
+        this.book = book;
     }
 }
