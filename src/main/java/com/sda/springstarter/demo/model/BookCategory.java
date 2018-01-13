@@ -1,10 +1,8 @@
 package com.sda.springstarter.demo.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table (name = "kategoria")
@@ -15,6 +13,9 @@ public class BookCategory {
     private int id;
 
     private String name;
+
+    @OneToMany(mappedBy = "bookCategory", cascade = CascadeType.ALL)
+    private Set<Book> books;
 
     public BookCategory(String name) {
         this.name = name;

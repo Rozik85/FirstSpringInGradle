@@ -1,9 +1,7 @@
 package com.sda.springstarter.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "autor")
@@ -16,6 +14,10 @@ public class Author {
     private String address;
     private String lastname;
     private String name;
+
+    @OneToMany(mappedBy = "bookAuthor", cascade = CascadeType.ALL)
+    private Set<Book>books;
+
 
     public Author() {
     }

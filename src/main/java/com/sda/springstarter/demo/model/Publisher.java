@@ -1,9 +1,6 @@
 package com.sda.springstarter.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "wydawca")
@@ -15,6 +12,9 @@ public class Publisher {
 
     private String address;
     private String name;
+
+    @OneToOne (mappedBy = "book_publisher", cascade = CascadeType.ALL)
+    private Book book;
 
     public Publisher() {
     }

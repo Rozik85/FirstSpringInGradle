@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 //@Data
 //@Builder
@@ -25,6 +22,16 @@ public class Book {
 
     private String title;
     private String author;
+
+    @ManyToOne
+    private Author bookAuthor;
+
+    @ManyToOne
+    private BookCategory bookCategory;
+
+    @OneToMany
+    @JoinColumn(name = "book_publisher_id")
+    private Publisher publisher;
 
     public Book(String title, String author) {
         this.title = title;
