@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,8 +20,8 @@ public class Publisher {
     private String address;
     private String name;
 
-    @OneToOne (mappedBy = "book_publisher")
-    private Book book;
+    @OneToMany (mappedBy = "book_publisher")
+    private Set<Book> book;
 
     public int getId() {
         return id;

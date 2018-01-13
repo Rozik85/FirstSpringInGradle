@@ -19,7 +19,6 @@ public class Book {
     private int id;
 
     private String title;
-    private String author;
 
     @ManyToOne
     private Author bookAuthor;
@@ -27,7 +26,7 @@ public class Book {
     @ManyToOne
     private BookCategory bookCategory;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "book_publisher_id")
     private Publisher book_publisher;
 
@@ -47,13 +46,6 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
 
     public Author getBookAuthor() {
         return bookAuthor;

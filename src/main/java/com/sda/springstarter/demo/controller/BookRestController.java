@@ -3,6 +3,7 @@ package com.sda.springstarter.demo.controller;
 import com.sda.springstarter.demo.model.Book;
 import com.sda.springstarter.demo.service.BookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,5 +20,10 @@ public class BookRestController {
     @RequestMapping(method = RequestMethod.GET)
     public List<Book> getAllBook() {
         return bookService.getAllBooks();
+    }
+
+    @RequestMapping(value ="/addnewbook", method = RequestMethod.POST)
+    public void saveBook(@RequestBody Book book){
+        bookService.saveBook(book);
     }
 }
