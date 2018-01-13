@@ -1,23 +1,21 @@
 package com.sda.springstarter.demo.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-//@Data
-//@Builder
-//@AllArgsConstructor
-//@NoArgsConstructor
+
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "ksiazki")
 public class Book {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String title;
@@ -29,21 +27,9 @@ public class Book {
     @ManyToOne
     private BookCategory bookCategory;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "book_publisher_id")
-    private Publisher publisher;
-
-    public Book() {
-    }
-
-    public Book(String title, String author, Author bookAuthor, BookCategory bookCategory, Publisher publisher) {
-
-        this.title = title;
-        this.author = author;
-        this.bookAuthor = bookAuthor;
-        this.bookCategory = bookCategory;
-        this.publisher = publisher;
-    }
+    private Publisher book_publisher;
 
     public int getId() {
         return id;
@@ -85,11 +71,11 @@ public class Book {
         this.bookCategory = bookCategory;
     }
 
-    public Publisher getPublisher() {
-        return publisher;
+    public Publisher getBook_publisher() {
+        return book_publisher;
     }
 
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
+    public void setBook_publisher(Publisher book_publisher) {
+        this.book_publisher = book_publisher;
     }
 }

@@ -1,8 +1,12 @@
 package com.sda.springstarter.demo.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Set;
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "autor")
 public class Author {
@@ -17,16 +21,6 @@ public class Author {
 
     @OneToMany(mappedBy = "bookAuthor", cascade = CascadeType.ALL)
     private Set<Book> books;
-
-    public Author() {
-    }
-
-    public Author(String address, String lastname, String name, Set<Book> books) {
-        this.name = name;
-        this.lastname = lastname;
-        this.address = address;
-        this.books = books;
-    }
 
     public int getId() {
         return id;
@@ -58,10 +52,6 @@ public class Author {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public Set<Book> getBooks() {
-        return books;
     }
 
     public void setBooks(Set<Book> books) {

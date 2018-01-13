@@ -1,9 +1,14 @@
 package com.sda.springstarter.demo.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Set;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table (name = "kategoria")
 public class BookCategory {
@@ -16,18 +21,6 @@ public class BookCategory {
 
     @OneToMany(mappedBy = "bookCategory", cascade = CascadeType.ALL)
     private Set<Book> books;
-
-    public BookCategory(String name) {
-        this.name = name;
-    }
-
-    public BookCategory(String name, Set<Book> books) {
-        this.name = name;
-        this.books = books;
-    }
-
-    public BookCategory() {
-    }
 
     public int getId() {
         return id;
@@ -43,13 +36,5 @@ public class BookCategory {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Set<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Set<Book> books) {
-        this.books = books;
     }
 }

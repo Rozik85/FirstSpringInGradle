@@ -1,29 +1,26 @@
 package com.sda.springstarter.demo.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "wydawca")
 public class Publisher {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "book_publisher_id")
     private int id;
 
     private String address;
     private String name;
 
-    @OneToOne (mappedBy = "book_publisher", cascade = CascadeType.ALL)
+    @OneToOne (mappedBy = "book_publisher")
     private Book book;
-
-    public Publisher(String address, String name, Book book) {
-        this.address = address;
-        this.name = name;
-        this.book = book;
-    }
-
-    public Publisher() {
-    }
 
     public int getId() {
         return id;
@@ -49,11 +46,4 @@ public class Publisher {
         this.name = name;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
 }
