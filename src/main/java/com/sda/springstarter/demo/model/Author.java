@@ -10,23 +10,22 @@ public class Author {
     @Id
     @GeneratedValue
     private int id;
-
-    private String address;
-    private String lastname;
     private String name;
+    private String lastname;
+    private String address;
+
 
     @OneToMany(mappedBy = "bookAuthor", cascade = CascadeType.ALL)
-    private Set<Book>books;
-
+    private Set<Book> books;
 
     public Author() {
     }
 
-    public Author(String address, String lastname, String name) {
-
-        this.address = address;
-        this.lastname = lastname;
+    public Author(String address, String lastname, String name, Set<Book> books) {
         this.name = name;
+        this.lastname = lastname;
+        this.address = address;
+        this.books = books;
     }
 
     public int getId() {
@@ -37,12 +36,12 @@ public class Author {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLastname() {
@@ -53,11 +52,19 @@ public class Author {
         this.lastname = lastname;
     }
 
-    public String getName() {
-        return name;
+    public String getAddress() {
+        return address;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }

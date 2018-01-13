@@ -16,13 +16,44 @@ public class Publisher {
     @OneToOne (mappedBy = "book_publisher", cascade = CascadeType.ALL)
     private Book book;
 
+    public Publisher(String address, String name, Book book) {
+        this.address = address;
+        this.name = name;
+        this.book = book;
+    }
+
     public Publisher() {
     }
 
-    public Publisher(String address, String name) {
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
 }

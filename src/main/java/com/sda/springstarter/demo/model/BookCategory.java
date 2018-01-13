@@ -21,7 +21,20 @@ public class BookCategory {
         this.name = name;
     }
 
+    public BookCategory(String name, Set<Book> books) {
+        this.name = name;
+        this.books = books;
+    }
+
     public BookCategory() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -32,11 +45,11 @@ public class BookCategory {
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public Set<Book> getBooks() {
+        return books;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }
