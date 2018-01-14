@@ -4,16 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "sklepy")
 public class Shops {
-@Id
-@GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
-private String name;
-private String street;
-private String city;
+    @NotNull
+    @Size(min = 2, max = 30)
+    private String name;
+    @Max(100)
+    private String street;
+    @Max(50)
+    private String city;
 
     public Shops(String name, String street, String city) {
         this.name = name;

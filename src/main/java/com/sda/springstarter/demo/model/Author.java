@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,8 +16,13 @@ public class Author {
     @Id
     @GeneratedValue
     private int id;
+    @NotNull
+    @Size(min=2, max =30)
     private String name;
+    @NotNull
+    @Size(min=2, max= 30)
     private String lastname;
+
     private String address;
 
 

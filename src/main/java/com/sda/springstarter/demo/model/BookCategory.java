@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -17,6 +19,8 @@ public class BookCategory {
     @GeneratedValue
     private int id;
 
+    @NotNull
+    @Size(min=2, max=30)
     private String name;
 
     @OneToMany(mappedBy = "bookCategory", cascade = CascadeType.ALL)

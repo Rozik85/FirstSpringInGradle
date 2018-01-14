@@ -1,6 +1,9 @@
 package com.sda.springstarter.demo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "opinie")
@@ -8,7 +11,11 @@ public class Opinions {
     @Id
     @GeneratedValue
     private int id;
+    @NotNull
+    @Size(min=2, max=30)
     private String nick;
+    @NotNull
+    @Max(500)
     private String comment;
     @ManyToOne
     private Book book;
