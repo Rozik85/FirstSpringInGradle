@@ -21,11 +21,11 @@ public class Publisher {
     private int id;
 
     private String address;
-    @NotNull
+
     @Size(min = 2, max = 50)
     private String name;
 
-    @OneToMany (mappedBy = "book_publisher")
+    @OneToMany (mappedBy = "book_publisher", cascade = CascadeType.ALL)
     private Set<Book> book;
 
     public int getId() {

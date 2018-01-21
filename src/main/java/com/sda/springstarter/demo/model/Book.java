@@ -18,16 +18,16 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @NotNull
+
     @Size(min = 2, max = 60)
     private String title;
-    @NotNull
-    @ManyToOne
+
+    @ManyToOne (cascade = CascadeType.ALL)
     private Author bookAuthor;
-    @NotNull
+
     @ManyToOne
     private BookCategory bookCategory;
-    @NotNull
+
     @ManyToOne
     @JoinColumn(name = "book_publisher_id")
     private Publisher book_publisher;

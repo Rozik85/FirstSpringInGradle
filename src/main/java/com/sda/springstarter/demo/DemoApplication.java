@@ -29,32 +29,32 @@ public class DemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-		Author author = new Author();
-		author.setName("Jan");
-		author.setLastname("Kowalski");
-		author.setAddress("Pila");
-
-		authorService.saveAuthor(author);
-
-		BookCategory bookCategory = new BookCategory();
-		bookCategory.setName("Komedia");
-
-		bookCategoryService.saveBookCategory(bookCategory);
-
-		Publisher bookPublisher = new Publisher();
-		bookPublisher.setAddress("Bytow");
-		bookPublisher.setName("Helion");
-		bookPublisher.setAddress("Bydgoszcz");
-
-		publisherService.savePublisher(bookPublisher);
-
-		Book book1 = new Book();
-		book1.setTitle("Java");
-		book1.setBookAuthor(author);
-		book1.setBookCategory(bookCategory);
-		book1.setBook_publisher(bookPublisher);
-
-		bookService.saveBook(book1);
+//		Author author = new Author();
+//		author.setName("Jan");
+//		author.setLastname("Kowalski");
+//		author.setAddress("Pila");
+//
+//		authorService.saveAuthor(author);
+//
+//		BookCategory bookCategory = new BookCategory();
+//		bookCategory.setName("Komedia");
+//
+//		bookCategoryService.saveBookCategory(bookCategory);
+//
+//		Publisher bookPublisher = new Publisher();
+//		bookPublisher.setAddress("Bytow");
+//		bookPublisher.setName("Helion");
+//		bookPublisher.setAddress("Bydgoszcz");
+//
+//		publisherService.savePublisher(bookPublisher);
+//
+//		Book book1 = new Book();
+//		book1.setTitle("Java");
+//		book1.setBookAuthor(author);
+//		book1.setBookCategory(bookCategory);
+//		book1.setBook_publisher(bookPublisher);
+//
+//		bookService.saveBook(book1);
 
 //
 //		Author author1 = authorRepository.findById(1);

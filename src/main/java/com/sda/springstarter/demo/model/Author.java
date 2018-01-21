@@ -16,10 +16,10 @@ public class Author {
     @Id
     @GeneratedValue
     private int id;
-    @NotNull
+
     @Size(min=2, max =30)
     private String name;
-    @NotNull
+
     @Size(min=2, max= 30)
     private String lastname;
 

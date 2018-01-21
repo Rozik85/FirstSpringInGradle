@@ -28,6 +28,11 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 //	runtime('com.h2database:h2')
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '1.5.9.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '1.3.0.RELEASE'
+
+
 	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
