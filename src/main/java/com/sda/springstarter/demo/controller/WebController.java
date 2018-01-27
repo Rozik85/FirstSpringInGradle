@@ -1,6 +1,5 @@
 package com.sda.springstarter.demo.controller;
 
-import com.sda.springstarter.demo.interfaces.PublisherService;
 import com.sda.springstarter.demo.model.Book;
 import com.sda.springstarter.demo.service.BookCategoryServiceImpl;
 import com.sda.springstarter.demo.service.BookServiceImpl;

@@ -14,6 +14,7 @@ import java.util.HashSet;
 
 @Service
 public class UserServiceImpl implements UserService {
+
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByEmail(String email) {
-        return null;
+        return userRepository.findByEmail(email);
     }
 
     @Override
@@ -34,5 +35,6 @@ public class UserServiceImpl implements UserService {
         user.setActive(1);
         Roles userRoles = roleRepository.findByRole("ADMIN");
         user.setRelesSet(new HashSet<>(Arrays.asList(userRoles)));
+        userRepository.save(user);
     }
 }

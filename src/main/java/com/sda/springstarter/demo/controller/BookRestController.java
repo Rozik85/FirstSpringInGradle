@@ -25,6 +25,7 @@ public class BookRestController {
     public void saveBook(@RequestBody Book book){
         bookService.saveBook(book);
     }
+
     @GetMapping(value = "{id}")
     public ResponseEntity<Book> getBookById(@PathVariable int id){
         return ResponseEntity.status(HttpStatus.OK)

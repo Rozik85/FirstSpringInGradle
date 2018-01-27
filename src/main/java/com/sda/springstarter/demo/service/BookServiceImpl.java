@@ -36,4 +36,8 @@ public class BookServiceImpl implements BookService {
         }
     }
 
+    public Book getBookByTitle(String name) {
+        return bookRepository.findByTitle(name);
+    }
+
 }
