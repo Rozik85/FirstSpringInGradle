@@ -6,54 +6,81 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/list.css}"/>
+
 </head>
 <body>
 <div class="container">
-    <h2 th:text="${message}"></h2>
+    <h2 class="alert alert-success" th:if="${message}" th:text="${message}"></h2>
 
     <h1>Lista ksiazek</h1>
 
-    <table>
+    <table class="points_table">
+        <thead>
         <tr>
-            <th>Tytul    |</th>
-            <th>Imie   |</th>
-            <th>Nazwisko   |</th>
-            <th>Wydawnictwo</th>
+            <th class="col-md-3">Tytul</th>
+            <th class="col-md-3">Imie</th>
+            <th class="col-md-3">Nazwisko</th>
+            <th class="col-md-3">Wydawnictwo</th>
         </tr>
+        </thead>
+        <tbody>
         <tr th:each="book : ${books}">
-            <td th:text="${book.getTitle()}"></td>
-            <td th:text="${book.getBookAuthor().getName()}"></td>
-            <td th:text="${book.getBookAuthor().getLastname()}"></td>
-            <td th:text="${book.getBookCategory().getName()}"></td>
+            <td class="col-md-3" th:text="${book.getTitle()}"></td>
+            <td class="col-md-3" th:text="${book.getBookAuthor().getName()}"></td>
+            <td class="col-md-3" th:text="${book.getBookAuthor().getLastname()}"></td>
+            <td class="col-md-3" th:text="${book.getBookCategory().getName()}"></td>
         </tr>
+        </tbody>
     </table>
 
-    <h1>Dodanie ksiązi</h1>
-
-    <form action="#" th:action="@{/addbook}" th:object="${book}" method="post">
-        <p>Nazwa ksiazki: <input type="text" th:field="*{title}"/></p>
-        <p>Author Imie: <input type="text" th:field="*{bookAuthor.name}"/></p>
-        <p>Author Nazwisko : <input type="text" th:field="*{bookAuthor.lastname}"/></p>
-
-        <label>Podaj kategorie</label>
-        <select th:field="*{bookCategory.id}">
-            <option th:each="cat : ${categories}"
-                    th:value="${cat.getId()}"
-                    th:text="${cat.getName()}"
-            ></option>
-        </select>
-
-        <label>Podaj Wydawnicto</label>
-        <select th:field="*{book_publisher.id}">
-            <option th:each="pub : ${publishers}"
-                    th:value="${pub.getId()}"
-                    th:text="${pub.getName()}"></option>
-        </select>
-        <p><input type="submit" value="Submit" />
-        <input type="reset" value="Reset" />
-        </p>
-
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Dadaj ksiązke</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form th:action="@{/addbook}" th:object="${book}" method="post">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="podaj tytuł" type="text" th:field="*{title}" />
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="podaj autora imie" th:field="*{bookAuthor.name}"
+                                           type="text" value=""/>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="podaj autora nazwisko" th:field="*{bookAuthor.lastname}"
+                                           type="text" value=""/>
+                                </div>
+                                <div class="form-group">
+                                <label>Podaj kategorie</label>
+                                <select th:field="*{bookCategory.id}">
+                                    <option th:each="cat : ${categories}"
+                                            th:value="${cat.getId()}"
+                                            th:text="${cat.getName()}"
+                                    ></option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Podaj Wydawnicto</label>
+                                    <select th:field="*{book_publisher.id}">
+                                        <option th:each="pub : ${publishers}"
+                                                th:value="${pub.getId()}"
+                                                th:text="${pub.getName()}"></option>
+                                    </select>
+                                </div>
+                                <input class="btn btn-lg btn-success btn-block" name="Submit" type="submit"
+                                       value="Doddaj"/>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 </body>

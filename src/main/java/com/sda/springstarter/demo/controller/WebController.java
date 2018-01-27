@@ -43,7 +43,7 @@ public class WebController {
                                 RedirectAttributes redirectAttributes) {
         bookService.saveBook(book);
         redirectAttributes
-                .addFlashAttribute("message", "Successfully added..");
+                .addFlashAttribute("message", "ksiazka zostala dodana");
 
         return "redirect:/lista";
     }
